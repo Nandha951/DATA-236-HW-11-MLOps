@@ -22,9 +22,11 @@ jobs:
         python-version: '3.x'
 
     - name: Install dependencies
+      working-directory: mlops_project
       run: |
         python -m pip install --upgrade pip
-        pip install -r mlops_project/requirements.txt
+        pip install -r requirements.txt
 
     - name: Run model training sanity check
-      run: python mlops_project/train_model.py
+      working-directory: mlops_project
+      run: python train_model.py
